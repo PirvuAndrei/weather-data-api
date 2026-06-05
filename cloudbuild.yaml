@@ -1,0 +1,20 @@
+steps:
+  # Pasul 1: Construirea imaginii Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/weather-data-api', '.']
+
+  # Pasul 2: Încărcarea imaginii în Artifact/Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/weather-data-api']
+
+  # Pasul 3: Deploy-ul automat în Google Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'weather-data-api'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/weather-data-api'
+      - '--region'
+      - 'us-central1'
