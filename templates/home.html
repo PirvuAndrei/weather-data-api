@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Data API</title>
+</head>
+<body>
+    <h1>Weather Data API</h1>
+    <p>URL Format: " http://127.0.0.1:5000/api/v1/&lt;station&gt;/&lt;date&gt; " &
+        " https://127.0.0.1:5000/api/v1/year/&lt;station&gt;/&lt;year&gt; " </p>
+
+    <p>
+        Example for one station for one date: <a href="http://127.0.0.1:5000/api/v1/10/1992-05-19">
+        http://127.0.0.1:5000/api/v1/10/1992-05-19
+        </a>
+    </p>
+
+    <p>
+        Example for one station for one year: <a href="http://127.0.0.1:5000/api/v1/yearly/10/1992">
+        http://127.0.0.1:5000/api/v1/yearly/10/1992
+        </a>
+    </p>
+
+    <p>
+        Example for one station for all dates: <a href="http://127.0.0.1:5000/api/v1/10">
+        http://127.0.0.1:5000/api/v1/10
+        </a>
+    </p>
+
+    <h2>Available Stations:</h2>
+
+    <p>{{data | safe}}</p>
+</body>
+</html>
