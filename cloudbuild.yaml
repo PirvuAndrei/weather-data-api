@@ -18,3 +18,7 @@ steps:
       - 'gcr.io/$PROJECT_ID/weather-data-api'
       - '--region'
       - 'us-central1'
+
+# Forțăm scrierea logurilor direct în consola Google Cloud
+options:
+  logging: CLOUD_LOGGING_ONLY
